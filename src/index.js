@@ -1,6 +1,6 @@
 // Test import of a JavaScript module
 import { example } from '@/js/example'
-
+import {higher_order_unctions} from '@/js/hof'
 // Test import of an asset
 import webpackLogo from '@/images/webpack-logo.svg'
 
@@ -24,3 +24,7 @@ imagePublic.src = '/assets/example.png'
 
 const app = document.querySelector('#root')
 app.append(logo, heading, imageBackground, imagePublic)
+
+
+
+higher_order_unctions()
