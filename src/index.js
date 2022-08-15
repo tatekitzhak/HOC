@@ -1,3 +1,7 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from '@/components/app.js';
+
 // Test import of a JavaScript module
 import { example } from '@/js/example'
 import {higher_order_unctions} from '@/js/hof'
@@ -7,24 +11,10 @@ import webpackLogo from '@/images/webpack-logo.svg'
 // Test import of styles
 import '@/styles/index.scss'
 
-// Appending to the DOM
-const logo = document.createElement('img')
-logo.src = webpackLogo
-
-const heading = document.createElement('h1')
-heading.textContent = example()
-
-// Test a background image url in CSS
-const imageBackground = document.createElement('div')
-imageBackground.classList.add('image')
-
-// Test a public folder asset
-const imagePublic = document.createElement('img')
-imagePublic.src = '/assets/example.png'
-
-const app = document.querySelector('#root')
-app.append(logo, heading, imageBackground, imagePublic)
 
 
 
-higher_order_unctions()
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App tab="home" />);
+
