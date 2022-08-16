@@ -4,62 +4,71 @@ import React from 'react';
 function AuthWrapper(WrappedComponent) {
     return class extends React.Component {
         renderSwitch(param) {
+            console.log("renderSwitch(param):",param.log)
             switch (param) {
-                case 'one':
+                case 'Login':
                     return (<WrappedComponent {...this.props}>
-                        {console.log(this.props)}
+                        {console.log("Login:",this.props.component)}
                     </WrappedComponent>)
-                case 'two':
+                case 'Logout':
                     return (<WrappedComponent {...this.props}>
-                        {console.log(this.props)}
+                        {console.log("Logout:",this.props.component)}
                     </WrappedComponent>)
-                case 'three':
+                case 'Registration':
                     return (<WrappedComponent {...this.props}>
-                        {console.log(this.props)}
+                        {console.log("Registration:",this.props.component)}
                     </WrappedComponent>)
                 default:
                     return console.log('default');
             }
         }
         render() {
-            if (this.props.isLoggedIn) {
-                { return this.renderSwitch(this.props.component) }
+                console.log("render:",this.props.isLoggedIn.isLoggedIn)
+            if (this.props.isLoggedIn.isLoggedIn) {
+                 return this.renderSwitch(this.props.component) 
                 
             }
-            return <p>You're not logged in ☹️{console.log(this.props)}</p>
+            else
+            
+            // return <p>You're not logged in ☹️{console.log(this.props)}</p>
+            
+
+            { return this.renderSwitch(this.props.isLoggedIn) }
         }
     }
 }
 
-class RegularComponent extends React.Component {
+class Login extends React.Component {
     render() {
-        return <p> Regular Component</p>
+        return <p> Login Component</p>
     }
 }
 
-class OtherRegularComponent extends React.Component {
+class Logout extends React.Component {
     render() {
-        return <p> Other Regualar Component </p>
+        return <p> Logout Component </p>
     }
 }
 
-const FunctionalComponent = () => (<p> functional component </p>)
+const Registration = () => (<p> Registration component </p>)
 
-const WrappedOne = AuthWrapper(RegularComponent)
-const WrappedTwo = AuthWrapper(OtherRegularComponent)
-const WrappedThree = AuthWrapper(FunctionalComponent)
+const LoginPage = AuthWrapper(Login)
+const LogoutPage = AuthWrapper(Logout)
+const RegistrationForm = AuthWrapper(Registration)
 
 class App extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            log: 'Registration'
         }
     }
 
     toggleAuth = () => {
-        this.setState((prevState, props) => ({ isLoggedIn: !prevState.isLoggedIn }))
+        this.setState((prevState, props) => ({ isLoggedIn: !prevState.isLoggedIn,
+            log: prevState.isLoggedIn ? 'Logout' : 'Login'}))
     }
 
 
@@ -70,11 +79,12 @@ class App extends React.Component {
                 <button onClick={this.toggleAuth}>
                     {isLoggedIn ? 'Logout' : 'Login'}
                 </button>
-                <WrappedOne isLoggedIn={isLoggedIn} component={'one'} />
-{/* 
-                <WrappedTwo isLoggedIn={isLoggedIn} component={'two'} />
-                <WrappedThree isLoggedIn={isLoggedIn} component={'three'} />
-                 */}
+                <LoginPage isLoggedIn={this.state} component={'Login'} />
+
+                <LogoutPage isLoggedIn={this.state} component={'Logout'} />
+                <RegistrationForm isLoggedIn={this.state} component={'Registration'} />
+
+                { console.log("App:",this.state)}
             </div>
         );
     }
