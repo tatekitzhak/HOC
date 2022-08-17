@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * https://blog.openreplay.com/what-are-higher-order-components-in-react
+
+ */
 
 const Wrapper = (WrappedComponent) => {
     class Wrapper extends React.Component {
@@ -11,7 +15,7 @@ const Wrapper = (WrappedComponent) => {
         }
         CountIncrement = () => {
         this.state.count++;
-        this.setState({count: this.state.count});
+        this.setState((prevState, props) => ({count: prevState.count}));
     }
         render () {
             return (
