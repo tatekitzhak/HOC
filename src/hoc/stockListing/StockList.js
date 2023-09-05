@@ -5,7 +5,7 @@ import React, {Component} from 'react';
  * @param {*} WrappedComponent 
  * @param {*} data 
  */
-export default function HocWrapper1(WrappedComponent, data){
+export default function withStockList(WrappedComponent, data){
     return class extends Component{
         constructor(props) {
             super(props);

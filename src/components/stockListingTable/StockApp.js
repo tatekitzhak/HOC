@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StockList from './StockList';
 import UserList from './UserList';
 
-import HocWrapper1 from '@/hoc/HocWrapper1';
+import withStockList from '@/hoc/stockListing/StockList';
 
 const StocksData = [
     {
@@ -19,7 +19,8 @@ const StocksData = [
         name: 'Reliance'
     }
   ];
-  const UsersData = [
+
+const UsersData = [
     {
         id: 1,
         name: 'Krunal'
@@ -35,17 +36,18 @@ const StocksData = [
     }
   ];
   
-  const Stocks = HocWrapper1( StockList, StocksData );
+const Stocks = withStockList( StockList, StocksData );
   
-  const Users = HocWrapper1( UserList, UsersData );
+const Users = withStockList( UserList, UsersData );
   
-
-function AppHoc1(props){
+function StockApp(props){
+    console.log("AppHoc1:",props)
         return(
             <div>
-                <Users></Users>
+                <Users usre="user"></Users>
                 <Stocks></Stocks>
             </div>
         );
 }
-export default HocWrapper1(AppHoc1);
+
+export default withStockList(StockApp);

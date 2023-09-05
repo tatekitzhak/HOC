@@ -14,7 +14,7 @@ class StockList extends Component {
         }
       }
       render() {
-        console.log("StockList:",this.props.data)
+        console.log("StockList:",this.props)
         return (
             <div className="container">
             <table className="table table-striped">

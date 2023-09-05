@@ -14,6 +14,7 @@ class UserList extends Component {
         }
       }
       render() {
+        console.log("UserList:",this.props)
         return (
             <div className="container">
             <table className="table table-striped">
