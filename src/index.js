@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import StockApp from '@/components/stockListingTable/StockApp';
+import StockApp from '@/components/stockListingTable';
 
 /**
  * 
@@ -16,8 +16,12 @@ import Counter from '@/components/counter/Couter';
 /**
  * 
  */
-import Layout from '@/components/pages/Layout'
+import Layout from '@/components/pages/Layout';
 
+/**
+ * Pricing
+ */
+import Pricing from '@/components/pricing'
 
 // Test import of styles
 import '@/styles/index.scss'
@@ -29,5 +33,5 @@ const root = createRoot(container);
 
 root.render(
     <>
-        <StockApp />
+        <Pricing />
     </>);
