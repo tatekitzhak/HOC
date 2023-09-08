@@ -21,7 +21,9 @@ import Layout from '@/components/pages/Layout';
 /**
  * Pricing
  */
-import Pricing from '@/components/pricing'
+import Pricing from '@/components/pricing';
+
+import DisplayFruitsList from '@/components/displayFruitsList';
 
 // Test import of styles
 import '@/styles/index.scss'
@@ -33,5 +35,5 @@ const root = createRoot(container);
 
 root.render(
     <>
-        <Pricing />
+        <DisplayFruitsList />
     </>);
