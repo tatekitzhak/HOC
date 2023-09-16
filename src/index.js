@@ -23,6 +23,10 @@ import Layout from '@/components/pages/Layout';
  */
 import Pricing from '@/components/pricing';
 
+/**
+ * 
+ */
+
 import DisplayFruitsList from '@/components/displayFruitsList';
 
 // Test import of styles
@@ -35,5 +39,5 @@ const root = createRoot(container);
 
 root.render(
     <>
-        <DisplayFruitsList />
+        <Pricing />
     </>);

@@ -10,6 +10,8 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import withPricingLayout from '@/hoc/pricing/withMainLayout';
+
 const tiers = [
   {
     title: 'Free',
@@ -50,7 +52,14 @@ const tiers = [
   },
 ];
 
-export default function Services(props) {
+const service_content = { // `someData` argument
+  headline: 'Our Services',
+  content: `Quickly build an effective pricing table for your potential customers with
+this layout. It&apos;s built with default MUI components with little
+customization.`,
+};
+
+function Services(props) {
   console.log('Services:',props)
   return (
     <>
@@ -123,3 +132,6 @@ export default function Services(props) {
     </>
   );
 }
+const ServicesLayout = withPricingLayout(Services, service_content)
+
+export default ServicesLayout;

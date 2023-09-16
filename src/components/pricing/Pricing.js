@@ -10,6 +10,8 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import withPricingLayout from '@/hoc/pricing/withMainLayout';
+
 const tiers = [
   {
     title: 'Free',
@@ -50,26 +52,16 @@ const tiers = [
   },
 ];
 
-export default function Pricing() {
+const pricing_content = { // `someData` argument
+  headline: 'Our Pricie',
+  content: `Quickly build an effective pricing table for your potential customers with
+this layout. It&apos;s built with default MUI components with little
+customization.`,
+}
+
+function Pricing() {
   return (
     <> 
-      {/* Hero unit */}
-      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
-          <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-          >
-              Pricing
-          </Typography>
-          <Typography variant="h5" align="center" color="text.secondary" component="p">
-              Quickly build an effective pricing table for your potential customers with
-              this layout. It&apos;s built with default MUI components with little
-              customization.
-          </Typography>
-      </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
@@ -140,3 +132,7 @@ export default function Pricing() {
     </>
   );
 }
+
+const PricingLayout = withPricingLayout(Pricing, pricing_content)
+
+export default PricingLayout;

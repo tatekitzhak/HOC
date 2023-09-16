@@ -25,6 +25,7 @@ function withPricingLayout(ElementLayout, layout_data) {
             <ThemeProvider theme={defaultTheme}>
                 <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
                 <CssBaseline />
+
                 <Header />
 
                   {/* headline */}
@@ -44,10 +45,11 @@ function withPricingLayout(ElementLayout, layout_data) {
                 </Container>
                 {/* End headline */}
 
-                {/*  */}
+                {/* Body */}
                 <ElementLayout>
                     <p>ppp</p>
                 </ElementLayout>
+                
                 {/* Footer */}
                 <Footer />
                 {/* End footer */}
